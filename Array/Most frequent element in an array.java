@@ -68,6 +68,13 @@ public class Practise {
 		System.out.println(mostfreq(arr, n));
 	}
 }
+/*Given the array: {40, 50, 30, 40, 50, 30, 30}
+After sorting, the array becomes: {30, 30, 30, 40, 40, 50, 50}
+The program checks each element:
+30 appears 3 times, so it becomes the most frequent element.
+40 appears 2 times, but it doesn’t exceed the count of 30.
+50 appears 2 times, but again, it doesn’t exceed 30.
+The most frequent element, 30, is returned.*/
 
 
 
