@@ -51,3 +51,42 @@ Auxiliary Space: O(1)
  if there is a Fixed Point). Similarly, check if the index of middle – 1 element is greater
   than or equal to the value at the low index, then Fixed Point(s) might lie on the left 
   side of the middle point. */
+
+	public class Practise {
+	public static int binarysearch(int arr[], int low, int high) {
+		if (high >= low ) {
+			int mid = low + (high - low) / 2;
+			if (mid == arr[mid]) {
+				return mid;
+			}
+			int res = -1;
+			if (mid + 1 <= arr[high]) {
+				res = binarysearch(arr, (mid + 1), high);
+			}
+			if (res != -1) {
+				return res;
+			}
+			if (mid - 1 >= arr[low]) {
+				return binarysearch(arr, low, (mid-1));
+			}
+			
+			
+		}
+		return -1;
+		
+	}
+	
+	public static void main(String[] args) {
+		int arr[] = {1,22, 2, 4, 5, 6, 7, 9, 8};
+		int n = arr.length;
+		System.out.println("Fixed Point is "
+                + binarysearch(arr, 0, n - 1));
+		
+	}
+}
+
+//Time Complexity Analysis:
+Average Case: O(log n)
+Worst Case: O(n)
+Best Case: O(1)
+Auxiliary Space: O(log n) (As implicit stack is used for recursive calls)
