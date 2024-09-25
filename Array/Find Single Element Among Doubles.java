@@ -48,4 +48,29 @@ Traverse all elements and put them in a hash table. Element is used as key
 Traverse the array again and print the element with count 1 in the hash table. 
 This solution works in O(n) time but requires extra space*/
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
 
+public class Practise {
+	public static int findSingle(int arr[]) {
+		Map < Integer, Integer> freq = new HashMap<>();
+		
+		for (int num : arr) {
+			freq.put(num, freq.getOrDefault(num,  0)+ 1);
+			
+		}
+		for  (Map.Entry<Integer, Integer> entry: freq.entrySet()) {
+			if (entry.getValue() == 1) {
+				return entry.getKey();
+			}
+		}
+		return -1;
+	}
+	
+	public static void main(String[] args) {
+		int [] arr = {1, 1, 2, 2, 3};
+		System.out.println(findSingle(arr));
+	}
+}
