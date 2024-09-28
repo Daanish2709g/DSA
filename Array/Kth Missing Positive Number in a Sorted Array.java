@@ -19,3 +19,22 @@ Explanation: Missing are 1, 4, 6, 7, 8, 13,…  so k-th missing element is 7*/
 
 
 
+public class Practise {
+	public static int Kthmissing(int[] arr, int K) {
+		for (int i = 0; i < arr.length; i++) {
+			if (arr[i] > (K+i)) {
+				return K+i;
+			}
+		}
+		return K + arr.length;
+	}
+	
+	public static void main(String[] args) {
+		int[] arr = {1, 2, 5};
+		int K = 10;
+		System.out.println(Kthmissing(arr, K));
+		
+	}
+}
+
+// output: 13
