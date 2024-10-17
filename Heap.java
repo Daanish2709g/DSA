@@ -143,8 +143,45 @@ Thus, n / 2 - 1 gives the index of the last non-leaf node from which you start h
 
 
 
+// why to call heify method : 
 
+    
+The heapify function is called to maintain the max-heap property after an element is swapped.
+    Let's break this down into two key scenarios:
 
+1. Building the Max-Heap
+In the first step of the heap sort process, we build a max-heap from the unsorted array by calling
+    heapify on each non-leaf node, starting from the last non-leaf node (at index n / 2 - 1) up to the root (index 0).
+
+Why Call heapify Here?
+The goal is to ensure that every parent node is greater than or equal to its children, satisfying the
+    max-heap property. Each time you call heapify on a node, it checks whether that node's children
+    are larger than itself. If one of the children is larger, the nodes are swapped, and heapify is
+    recursively called on the affected subtree to propagate the heap property downward.
+
+2. Sorting the Heap
+After building the max-heap, we proceed to the sorting phase, where:
+
+The largest element (root of the heap) is swapped with the last element.
+The heap size is reduced by 1, essentially removing the largest element from the heap.
+We call heapify on the reduced heap to restore the heap property.
+Why Call heapify After Each Swap?
+When the largest element (root) is swapped with the last element, the new root might violate the heap 
+    property because it could be smaller than its children. By calling heapify, we restore the max-heap
+    property for the remaining heap elements by pushing the new root downwards if needed. This ensures 
+    that the largest element again rises to the top of the heap.
+
+Example
+Consider the array [12, 11, 13, 5, 6, 7]:
+
+Initial Max-Heap: The array is turned into a max-heap using heapify, resulting in [13, 11, 12, 5, 6, 7].
+
+Swap Root with Last: The root (13) is swapped with the last element (7), resulting in [7, 11, 12, 5, 6, 13].
+
+Call heapify: After the swap, the new root (7) may violate the heap property, so we call heapify to fix 
+    the heap. After calling heapify, the array becomes [12, 11, 7, 5, 6, 13], restoring the heap property.
+
+Thus, calling heapify is essential for maintaining the heap structure throughout the sorting process.
 
 
 
